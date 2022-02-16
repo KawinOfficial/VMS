@@ -1,1 +1,1 @@
-# VMS
+Vendor Management System
