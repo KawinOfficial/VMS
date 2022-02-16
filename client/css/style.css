@@ -1,0 +1,51 @@
+* {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+body {
+  background: url("../img/bgEdit.jpg") no-repeat fixed center;
+  background-size: 100vw;
+  background-size: cover;
+}
+
+.SNC {
+  font-family: "lilyUPC";
+  src: url("./font/LilyUPC_Bold_Italic.ttf");
+  font-style: italic;
+  color: red;
+}
+
+.font-thai {
+  font-family: "Noto Serif Thai", serif;
+}
+
+.thead-fixed {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+.blink-status {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.2;
+  }
+}
