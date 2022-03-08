@@ -30,23 +30,21 @@
 <body>
    <div class="container-fluid" id="visitor">
       <?php include_once "./components/Nav.php" ?>
-      <div class="d-flex justify-content-center align-items-center mb-2 pt-3" style="height: 87vh;">
-         <div class="card shadow-sm overflow-auto h-100" style="height: 83vh; width: 96vw">
+      <div class="d-flex justify-content-center align-items-center mb-2 pt-3" style="height: 88vh;">
+         <div class="card shadow-sm overflow-auto h-100" style="height: 90vh; width: 96vw">
             <div class="card-header d-flex justify-content-between align-items-center">
                <div>
                   <h4 class="font-thai fw-bold">บันทึกข้อมูลการเดินทางสำหรับผู้มาติดต่อบริษัท</h4>
                   <h5 class="fw-bold">(TRAVEL HISTORY FORM FOR VISITOR)</h5>
                </div>
-               <h5 class="fw-bold me-2">
-                  <!-- {{ getDateFormat(0) }} -->
-               </h5>
+
             </div>
             <div class="card-body">
                <div class="row">
                   <div class="col-12 col-sm-5 mb-3 border-end border-2">
                      <?php include_once "./components/visitorPage/Information.php" ?>
                   </div>
-                  <div class="col-12 col-sm-7 mb-2 overflow-auto" style="height: 66vh;">
+                  <div class="col-12 col-sm-7 mb-2 overflow-auto" style="height: 70vh;">
                      <?php include_once "./components/visitorPage/Timeline.php" ?>
                   </div>
                </div>

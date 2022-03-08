@@ -16,7 +16,7 @@ const app = Vue.createApp({
         vaccine: "",
         vaccineDose: [],
         doseDate: [],
-        atk: "",
+        atk: "-",
         atkDate: "",
         status: "",
         datetime: "",
@@ -213,7 +213,7 @@ const app = Vue.createApp({
           }));
       }
       const result = [...visitInfo, ...visitAll];
-      console.log(result);
+      // console.log(result);
 
       axios.post(this.url_me, result).then(({ data: { state } }) => {
         if (state) {
@@ -243,7 +243,7 @@ const app = Vue.createApp({
     },
 
     handleCancel() {
-      console.log(this.form.question.length);
+      // console.log(this.form.question.length);
       Swal.fire({
         icon: "warning",
         title: "ยกเลิกการบันทึกข้อมูล? (Cancel save data?)",
@@ -276,6 +276,7 @@ const app = Vue.createApp({
         atkDate,
         entourage,
         question,
+        timeline,
       } = this.form;
       const {
         name: nameEn,
@@ -303,9 +304,10 @@ const app = Vue.createApp({
         (vaccineDose2 != undefined) &
         (doseDate1 != undefined) &
         (doseDate2 != undefined) &
-        (atk != "") &
-        (atkDate != "") &
-        (question.length == "8")
+        // (atk != "") &
+        // (atkDate != "") &
+        (question.length == "8") &
+        (timeline.location.length == "3")
       ) {
         if (entourage != "0") {
           if (
@@ -315,8 +317,8 @@ const app = Vue.createApp({
             (doseDateEn[entourage - 1][0] != undefined) &
             (vaccineDoseEn[entourage - 1][1] != undefined) &
             (doseDateEn[entourage - 1][1] != undefined) &
-            (atkEn.length == entourage) &
-            (atkDateEn.length == entourage) &
+            // (atkEn.length == entourage) &
+            // (atkDateEn.length == entourage) &
             (questionEn[entourage - 1].length == "8")
           ) {
             return (this.confirm = false);

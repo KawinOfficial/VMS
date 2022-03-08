@@ -6,11 +6,15 @@
          </a>
       </div>
       <div class="col-5 d-flex justify-content-center">
-         <a href="Request.php" class="link-dark text-decoration-none me-3">
-            <h4 class="fw-bold">Request</h4>
+         <a href="Request.php" class="link-dark text-decoration-none me-5">
+            <button type="button" class="btn btn-outline-dark fw-bold rounded-pill fs-5">
+               Request
+            </button>
          </a>
          <a href="History.php" class="link-dark text-decoration-none">
-            <h4 class="fw-bold">History</h4>
+            <button type="button" class="btn btn-outline-dark fw-bold rounded-pill fs-5">
+               History
+            </button>
          </a>
       </div>
       <div class="col-3 ">

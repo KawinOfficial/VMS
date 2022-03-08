@@ -70,17 +70,17 @@
       </h5>
       <p class="font-thai pt-0 mb-2 fw-bold text-secondary">หมายเหตุ: ระบุโดยสังเขป <span>(Kindly provide a brief
             information)</span></p>
-      <p class="font-thai pt-1 m-0 small">คำชี้แจง: ระบุแจ้งการเดินทางทั้งจากต่างประเทศ และภายในประเทศ ในช่วง 14
+      <p class="font-thai pt-1 m-0 small">คำชี้แจง: ระบุแจ้งการเดินทางทั้งจากต่างประเทศ และภายในประเทศ ในช่วง 3
          วันที่ผ่านมา
          (โปรดระบุจังหวัดและอำเภอ วันเดินทางไปและกลับ และ พาหนะที่ใช้ในการเดินทาง)
       </p>
-      <p class="small m-0 ">Statement: Please provide your 14-day travel history both domestic and international
+      <p class="small m-0 ">Statement: Please provide your 3-day travel history both domestic and international
          (please specify details on the province, district, the date of travelling, and the travel vehicle)
       </p>
    </div>
 
    <!-- Table -->
-   <div class="col-12 overflow-auto m-0" style="height: 52vh;">
+   <div class="col-12 overflow-auto m-0" style="height: 40vh;">
       <table class="table table-hover text-center position-relative">
          <thead class=" thead-fixed bg-light">
             <tr>
@@ -97,7 +97,7 @@
             </tr>
          </thead>
          <tbody>
-            <tr v-for="i in 14" :key="i">
+            <tr v-for="i in 3" :key="i">
                <td>
                   <p class=" fw-bold">{{ form.timeline.date[i-1] }}</p>
                </td>
@@ -137,7 +137,7 @@
                </tr>
             </thead>
             <tbody>
-               <tr v-for="n in 14" :key="n">
+               <tr v-for="n in 3" :key="n">
                   <td>
                      <p class=" fw-bold">{{ form.timeline.date[n-1] }}</p>
                   </td>

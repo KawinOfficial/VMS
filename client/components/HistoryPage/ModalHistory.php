@@ -136,7 +136,7 @@
 
                <!-- ATK -->
                <div class="row mb-3">
-                  <div class="col-12">
+                  <!-- <div class="col-12">
                      <h5 class="font-thai fw-bold " id="ATK">ข้อมูลการตรวจ <span>ATK</span>
                         <span class="fw-bold small">(ATK History)</span>
                      </h5>
@@ -163,7 +163,7 @@
                            <input disabled class="form-control" type="text" :value="modalInfo?.atk">
                         </div>
                      </div>
-                  </div>
+                  </div> -->
                   <div class="col-12">
                      <div class="row">
                         <div class="col-6 pt-2 pe-0">

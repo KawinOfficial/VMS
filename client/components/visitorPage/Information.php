@@ -1,5 +1,5 @@
 <div class="row p-0">
-   <div class="col-12 overflow-auto" style="height: 66vh">
+   <div class="col-12 overflow-auto" style="height: 70vh">
       <!-- GenInfo -->
       <div class="row mb-4 mt-2">
          <div class="col-12">
@@ -96,7 +96,7 @@
       </div>
 
       <!-- ATK -->
-      <div class="row mb-3">
+      <!-- <div class="row mb-3">
          <div class="col-12">
             <h5 class="font-thai fw-bold " id="ATK">ข้อมูลการตรวจ <span>ATK</span>
                <span class="fw-bold small">(ATK History)</span>
@@ -134,7 +134,7 @@
                </div>
             </div>
          </div>
-      </div>
+      </div> -->
 
       <!-- Entourage -->
       <div class="row">
@@ -219,7 +219,7 @@
                      </div>
                   </div>
 
-                  <div class="col-12">
+                  <!-- <div class="col-12">
                      <h6 class="font-thai fw-bold " id="ATK">ข้อมูลการตรวจ <span>ATK</span>
                         <span class="fw-bold small">(ATK History)</span>
                      </h6>
@@ -256,7 +256,7 @@
                            </label>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
                   <hr />
                </div>
             </div>

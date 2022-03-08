@@ -121,7 +121,7 @@
                </div>
 
                <!-- ATK -->
-               <div class="row mb-3">
+               <!-- <div class="row mb-3">
                   <div class="col-12">
                      <h5 class="font-thai fw-bold " id="ATK">ข้อมูลการตรวจ <span>ATK</span>
                         <span class="fw-bold small">(ATK History)</span>
@@ -150,7 +150,7 @@
                         </div>
                      </div>
                   </div>
-               </div>
+               </div> -->
 
                <!-- Question -->
                <div class="row mb-3">
@@ -370,7 +370,7 @@
                </div>
 
                <!-- ATK Info -->
-               <div class="col-12">
+               <!-- <div class="col-12">
                   <h6 class="font-thai fw-bold " id="ATK">ข้อมูลการตรวจ <span>ATK</span>
                      <span class="fw-bold small">(ATK History)</span>
                   </h6>
@@ -397,7 +397,7 @@
                         <input disabled class="form-control" type="text" :value="info?.atk">
                      </div>
                   </div>
-               </div>
+               </div> -->
 
                <!-- Question -->
                <div class="col-12 pt-3">
