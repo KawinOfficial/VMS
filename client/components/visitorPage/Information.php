@@ -1,5 +1,5 @@
 <div class="row p-0">
-   <div class="col-12 overflow-auto" style="height: 70vh">
+   <div class="col-12 overflow-auto" style="height: 75vh">
       <!-- GenInfo -->
       <div class="row mb-4 mt-2">
          <div class="col-12">
@@ -9,18 +9,15 @@
          </div>
          <div class="col-6 pb-2">
             <label for="Name" class="font-thai">ชื่อ <span>(Name)</span></label>
-            <input v-model="form.name" class="form-control" type="text" placeholder="Name" id="Name"
-               aria-label="Name input" required />
+            <input v-model="form.name" class="form-control" type="text" placeholder="Name" id="Name" aria-label="Name input" required />
          </div>
          <div class="col-6">
             <label for="Surname" class="font-thai">นามสกุล <span>(Surname)</span></label>
-            <input v-model="form.surname" class="form-control" type="text" placeholder="Surname" id="Surname"
-               aria-label="Surname input" required />
+            <input v-model="form.surname" class="form-control" type="text" placeholder="Surname" id="Surname" aria-label="Surname input" required />
          </div>
          <div class="col-12">
             <label for="Company" class="font-thai">หน่วยงาน <span>(Organization / Company)</span></label>
-            <input v-model="form.company" class="form-control" type="text" placeholder="Organization / Company"
-               id="Company" aria-label="Company input" required />
+            <input v-model="form.company" class="form-control" type="text" placeholder="Organization / Company" id="Company" aria-label="Company input" required />
          </div>
       </div>
 
@@ -33,8 +30,7 @@
          </div>
          <div class="col-12 pb-2">
             <label for="nameVisit" class="font-thai">ชื่อผู้เข้าพบ <span>(To Visit)</span></label>
-            <input v-model="form.toVisit" class="form-control" type="text" placeholder="To Visit" id="nameVisit"
-               aria-label="nameVisit" required />
+            <input v-model="form.toVisit" class="form-control" type="text" placeholder="To Visit" id="nameVisit" aria-label="nameVisit" required />
          </div>
          <div class="col-12 pb-2">
             <label for="purpose" class="font-thai">ติดต่อภารกิจเรื่อง <span>(Contact Purpose)</span></label>
@@ -45,8 +41,7 @@
                <div class="col-5 pt-2 pe-0"><label for="visitDate" class="font-thai">วันที่ต้องการเข้าพบ <span>(Visit
                         date)</span></label></div>
                <div class="col-7 ">
-                  <input v-model="form.visitDate" class="form-control" type="date" id="visitDate" aria-label="visitDate"
-                     required />
+                  <input v-model="form.visitDate" class="form-control" type="date" id="visitDate" aria-label="visitDate" required />
                </div>
             </div>
          </div>
@@ -69,18 +64,15 @@
                   {{ i }}
                </option>
             </select>
-            <p class="small font-thai text-secondary">หมายเหตุ: ระบุอย่างน้อย 2 เข็ม และมากสุด 5 เข็ม<br /><span
-                  class="small"> (Specify at
+            <p class="small font-thai text-secondary">หมายเหตุ: ระบุอย่างน้อย 2 เข็ม และมากสุด 5 เข็ม<br /><span class="small"> (Specify at
                   least 2 dose and maximum of 5 dose.)</span></p>
          </div>
          <div v-for="k in form.vaccine" :key="k">
             <div class="row">
                <div class="col-6 pb-2">
-                  <label for="firstdate" class="font-thai">เข็มที่ <b>{{ k }}</b> วันที่ <br /><span
-                        class="small text-nowrap">
+                  <label for="firstdate" class="font-thai">เข็มที่ <b>{{ k }}</b> วันที่ <br /><span class="small text-nowrap">
                         (Date of {{ k }} dose vaccination)</span></label>
-                  <input v-model="form.doseDate[k-1]" class="form-control" type="date" id="firstdate"
-                     aria-label="firstdate" required />
+                  <input v-model="form.doseDate[k-1]" class="form-control" type="date" id="firstdate" aria-label="firstdate" required />
                </div>
                <div class="col-6 pb-2">
                   <label for="vaccine1" class="font-thai">ชื่อวัคซีน <br /><span class="text-nowrap">
@@ -96,7 +88,7 @@
       </div>
 
       <!-- ATK -->
-      <!-- <div class="row mb-3">
+      <div class="row mb-3">
          <div class="col-12">
             <h5 class="font-thai fw-bold " id="ATK">ข้อมูลการตรวจ <span>ATK</span>
                <span class="fw-bold small">(ATK History)</span>
@@ -109,8 +101,7 @@
                      <span class="text-nowrap">(Lasted ATK Test Date)</span></label>
                </div>
                <div class="col-7 pt-2">
-                  <input v-model="form.atkDate" class="form-control" type="date" id="atkDate" aria-label="atkDate"
-                     required />
+                  <input v-model="form.atkDate" class="form-control" type="date" id="atkDate" aria-label="atkDate" required />
                </div>
             </div>
          </div>
@@ -121,20 +112,18 @@
                   </p>
                </div>
                <div class="col-12 col-sm-9 pt-0 pt-sm-3">
-                  <input v-model="form.atk" class="form-check-input" type="radio" name="check" id="Positive"
-                     value="Positive">
+                  <input v-model="form.atk" class="form-check-input" type="radio" name="check" id="Positive" value="Positive">
                   <label class="form-check-label ps-1 pe-3 font-thai" for="Positive">
                      พบเชื้อ <span>(Positive)</span>
                   </label>
-                  <input v-model="form.atk" class="form-check-input" type="radio" name="check" id="Negative"
-                     value="Negative">
+                  <input v-model="form.atk" class="form-check-input" type="radio" name="check" id="Negative" value="Negative">
                   <label class="form-check-label ps-1 font-thai" for="Negative">
                      ไม่พบเชื้อ <span>(Negative)</span>
                   </label>
                </div>
             </div>
          </div>
-      </div> -->
+      </div>
 
       <!-- Entourage -->
       <div class="row">
@@ -167,13 +156,11 @@
                   </div>
                   <div class="col-6 pb-2">
                      <label for="Name" class="font-thai">ชื่อ <span>(Name)</span></label>
-                     <input v-model="form.entourageInfo.name[n-1]" class="form-control" type="text" placeholder="Name"
-                        id="Name" aria-label="Name input" required />
+                     <input v-model="form.entourageInfo.name[n-1]" class="form-control" type="text" placeholder="Name" id="Name" aria-label="Name input" required />
                   </div>
                   <div class="col-6">
                      <label for="Surname" class="font-thai">นามสกุล <span>(Surname)</span></label>
-                     <input v-model="form.entourageInfo.surname[n-1]" class="form-control" type="text"
-                        placeholder="Surname" id="Surname" aria-label="Surname input" required />
+                     <input v-model="form.entourageInfo.surname[n-1]" class="form-control" type="text" placeholder="Surname" id="Surname" aria-label="Surname input" required />
                   </div>
 
                   <div class="col-12">
@@ -186,8 +173,7 @@
                            (The number of vaccines you received)</span></label>
                      <!-- <input v-model="form.entourageInfo.vaccine[n-1]" type="number" class="form-control" id="vaccine"
                         aria-label="vaccine" min="2" max="5" required /> -->
-                     <select v-model="form.entourageInfo.vaccine[n-1]" id="vaccine" aria-label="vaccine"
-                        class="form-select" required>
+                     <select v-model="form.entourageInfo.vaccine[n-1]" id="vaccine" aria-label="vaccine" class="form-select" required>
                         <option v-for="i in 5" :value="i">
                            {{ i }}
                         </option>
@@ -200,17 +186,14 @@
                   <div v-for="k in form.entourageInfo.vaccine[n-1]" :key="k">
                      <div class="row">
                         <div class="col-6 pb-2">
-                           <label for="firstdate" class="font-thai">เข็มที่ <b>{{ k }}</b> วันที่ <br /><span
-                                 class="small text-nowrap">
+                           <label for="firstdate" class="font-thai">เข็มที่ <b>{{ k }}</b> วันที่ <br /><span class="small text-nowrap">
                                  (Date of {{ k }} dose vaccination)</span></label>
-                           <input v-model="form.entourageInfo.doseDateEn[n-1][k-1]" class="form-control" type="date"
-                              id="firstdate" aria-label="firstdate" required />
+                           <input v-model="form.entourageInfo.doseDateEn[n-1][k-1]" class="form-control" type="date" id="firstdate" aria-label="firstdate" required />
                         </div>
                         <div class="col-6 pb-2">
                            <label for="vaccine1" class="font-thai">ชื่อวัคซีน <br /><span class="text-nowrap">
                                  (Name of Vaccination)</span></label>
-                           <select v-model="form.entourageInfo.vaccineDoseEn[n-1][k-1]" id="vaccine1"
-                              class="form-select" required>
+                           <select v-model="form.entourageInfo.vaccineDoseEn[n-1][k-1]" id="vaccine1" class="form-select" required>
                               <option v-for="option in options" :value="option.value">
                                  {{ option.text }}
                               </option>
@@ -219,7 +202,7 @@
                      </div>
                   </div>
 
-                  <!-- <div class="col-12">
+                  <div class="col-12">
                      <h6 class="font-thai fw-bold " id="ATK">ข้อมูลการตรวจ <span>ATK</span>
                         <span class="fw-bold small">(ATK History)</span>
                      </h6>
@@ -231,8 +214,7 @@
                               <span class="text-nowrap">(Last ATK Test Date)</span></label>
                         </div>
                         <div class="col-7 pt-2">
-                           <input v-model="form.entourageInfo.atkDate[n-1]" class="form-control" type="date"
-                              id="atkDate" aria-label="atkDate" required />
+                           <input v-model="form.entourageInfo.atkDate[n-1]" class="form-control" type="date" id="atkDate" aria-label="atkDate" required />
                         </div>
                      </div>
                   </div>
@@ -244,19 +226,17 @@
                            </p>
                         </div>
                         <div class="col-12 col-sm-9 ps-2 pt-sm-3">
-                           <input v-model="form.entourageInfo.atk[n-1]" class="form-check-input" type="radio"
-                              :name="'chk'+n" value="Positive">
-                           <label class="form-check-label ps-1 pe-3 font-thai" for="Positive">
+                           <input v-model="form.entourageInfo.atk[n-1]" class="form-check-input" type="radio" :id="'Positive'+n" :name="'chk'+n" value="Positive">
+                           <label class="form-check-label ps-1 pe-3 font-thai" :for="'Positive'+n">
                               พบเชื้อ <span>(Positive)</span>
                            </label>
-                           <input v-model="form.entourageInfo.atk[n-1]" class="form-check-input" type="radio"
-                              :name="'chk'+n" value="Negative">
-                           <label class="form-check-label ps-1 font-thai" for="Negative">
+                           <input v-model="form.entourageInfo.atk[n-1]" class="form-check-input" type="radio" :id="'Negative'+n" :name="'chk'+n" value="Negative">
+                           <label class="form-check-label ps-1 font-thai" :for="'Negative'+n">
                               ไม่พบเชื้อ <span>(Negative)</span>
                            </label>
                         </div>
                      </div>
-                  </div> -->
+                  </div>
                   <hr />
                </div>
             </div>

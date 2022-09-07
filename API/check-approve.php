@@ -6,7 +6,7 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
     date_default_timezone_set('Asia/Bangkok');
 
-    $link = mysqli_connect('localhost', 'root', '', 'vam');
+    $link = mysqli_connect('localhost', 'root', 'snc@2020', 'vam');
     mysqli_set_charset($link, 'utf8');
     $requestMethod = $_SERVER["REQUEST_METHOD"];
 
@@ -19,4 +19,3 @@
         echo json_encode($countNumber);
         $result -> free_result();
     }
-?>

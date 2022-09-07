@@ -1,5 +1,5 @@
 <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="backdropLabel" aria-hidden="true">
-   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable  modal-lg">
       <div class="modal-content">
          <div class="modal-header pb-0">
             <div>
@@ -23,22 +23,19 @@
                   </div>
                   <div class="col-12 pb-2">
                      <label for="Name" class="font-thai">ชื่อ - นามสกุล <span>(Fullname)</span></label>
-                     <input disabled class="form-control font-thai fw-bold" type="text" id="Name"
-                        :value="modalInfo?.name" />
+                     <input disabled class="form-control font-thai fw-bold" type="text" id="Name" :value="modalInfo?.name" />
                   </div>
 
                   <div class="col-12">
                      <label for="Company" class="font-thai">หน่วยงาน <span>(Organization / Company)</span></label>
-                     <input disabled class="form-control font-thai fw-bold" type="text" id="Company"
-                        :value="modalInfo?.company" />
+                     <input disabled class="form-control font-thai fw-bold" type="text" id="Company" :value="modalInfo?.company" />
                   </div>
                </div>
 
                <!-- Button -->
                <div class="row mb-4" align="end">
                   <div class="col-12" align="center">
-                     <button type="button" class="btn btn-secondary btn-sm rounded-pill" data-bs-toggle="modal"
-                        data-bs-target="#timelineModal">
+                     <button type="button" class="btn btn-secondary btn-sm rounded-pill" data-bs-toggle="modal" data-bs-target="#timelineModal">
                         Timeline
                      </button>
                   </div>
@@ -53,13 +50,11 @@
                   </div>
                   <div class="col-12 pb-2">
                      <label for="nameVisit" class="font-thai">ชื่อผู้เข้าพบ <span>(To Visit)</span></label>
-                     <input disabled class="form-control font-thai " type="text" id="nameVisit"
-                        :value="modalInfo?.toVisit" />
+                     <input disabled class="form-control font-thai " type="text" id="nameVisit" :value="modalInfo?.toVisit" />
                   </div>
                   <div class="col-12 pb-2">
                      <label for="purpose" class="font-thai">ติดต่อภารกิจเรื่อง <span>(Contact Purpose)</span></label>
-                     <textarea disabled class="form-control font-thai " rows="3" id="purpose"
-                        :value="modalInfo?.purposeVisit"></textarea>
+                     <textarea disabled class="form-control font-thai " rows="3" id="purpose" :value="modalInfo?.purposeVisit"></textarea>
                   </div>
                   <div class="col-12">
                      <div class="row">
@@ -69,8 +64,7 @@
                            </label>
                         </div>
                         <div class="col-7 pt-2">
-                           <input disabled class="form-control " type="text" id="visitDate"
-                              :value="modalInfo?.visitDate?.split('-')?.reverse()?.join('/') " />
+                           <input disabled class="form-control " type="text" id="visitDate" :value="modalInfo?.visitDate?.split('-')?.reverse()?.join('/') " />
                         </div>
                      </div>
                   </div>
@@ -86,11 +80,9 @@
                   <div v-for="k in vaccine" :key="k">
                      <div class="row">
                         <div class="col-6 pb-2">
-                           <label for="firstdate" class="font-thai">เข็มที่ <b>{{ k }}</b> วันที่ <br /><span
-                                 class="small text-nowrap">
+                           <label for="firstdate" class="font-thai">เข็มที่ <b>{{ k }}</b> วันที่ <br /><span class="small text-nowrap">
                                  (Date of {{ k }} dose vaccination)</span></label>
-                           <input disabled class="form-control" type="text" id="firstdate" aria-label="firstdate"
-                              :value="doseDate[k-1]?.split('-').reverse().join('/')" />
+                           <input disabled class="form-control" type="text" id="firstdate" aria-label="firstdate" :value="doseDate[k-1]?.split('-').reverse().join('/')" />
                         </div>
                         <div class="col-6 pb-2">
                            <label for="vaccine1" class="font-thai">ชื่อวัคซีน <br /><span class="text-nowrap">
@@ -119,13 +111,11 @@
                                  <p class="text-start small ps-3 my-0">{{info.textEng}}</p>
                               </td>
                               <td>
-                                 <input v-if="question[i] == 'true'" type="radio" class="form-check-input" checked
-                                    disabled>
+                                 <input v-if="question[i] == 'true'" type="radio" class="form-check-input" checked disabled>
                                  <input v-else type="radio" class="form-check-input " disabled>
                               </td>
                               <td>
-                                 <input v-if="question[i] == 'false'" type="radio" class="form-check-input" checked
-                                    disabled>
+                                 <input v-if="question[i] == 'false'" type="radio" class="form-check-input" checked disabled>
                                  <input v-else type="radio" class="form-check-input " disabled>
                               </td>
                            </tr>
@@ -136,7 +126,7 @@
 
                <!-- ATK -->
                <div class="row mb-3">
-                  <!-- <div class="col-12">
+                  <div class="col-12">
                      <h5 class="font-thai fw-bold " id="ATK">ข้อมูลการตรวจ <span>ATK</span>
                         <span class="fw-bold small">(ATK History)</span>
                      </h5>
@@ -148,8 +138,7 @@
                               <span class="text-nowrap">(Last ATK Test Date)</span></label>
                         </div>
                         <div class="col-6 pt-2">
-                           <input disabled class="form-control " type="text" id="atkDate"
-                              :value="modalInfo?.atkDate?.split('-')?.reverse()?.join('/')" />
+                           <input disabled class="form-control " type="text" id="atkDate" :value="modalInfo?.atkDate?.split('-')?.reverse()?.join('/')" />
                         </div>
                      </div>
                   </div>
@@ -163,7 +152,7 @@
                            <input disabled class="form-control" type="text" :value="modalInfo?.atk">
                         </div>
                      </div>
-                  </div> -->
+                  </div>
                   <div class="col-12">
                      <div class="row">
                         <div class="col-6 pt-2 pe-0">
@@ -183,8 +172,7 @@
 </div>
 
 <!-- Timeline Modal -->
-<div class="modal fade" id="timelineModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-   aria-labelledby="timelineModal" aria-hidden="true">
+<div class="modal fade" id="timelineModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="timelineModal" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <div class="modal-content">
          <div class="modal-header">
@@ -222,12 +210,10 @@
                               <p>{{ info.date?.split('-')?.reverse()?.join('/') }}</p>
                            </td>
                            <td>
-                              <input disabled type="text" class="form-control form-control-sm font-thai"
-                                 id="destination" :value="info.location">
+                              <input disabled type="text" class="form-control form-control-sm font-thai" id="destination" :value="info.location">
                            </td>
                            <td>
-                              <input disabled type="text" class="form-control form-control-sm font-thai"
-                                 id="destination" :value="info.vehicle">
+                              <input disabled type="text" class="form-control form-control-sm font-thai" id="destination" :value="info.vehicle">
                            </td>
                         </tr>
                      </tbody>

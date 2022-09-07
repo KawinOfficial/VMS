@@ -21,12 +21,10 @@
                   <p class="text-start small ps-3 my-0">{{info.textEng}}</p>
                </td>
                <td>
-                  <input v-model="form.question[i]" type="radio" class="form-check-input" :name="'check' + i"
-                     value="true" required>
+                  <input v-model="form.question[i]" type="radio" class="form-check-input" :name="'check' + i" value="true" required>
                </td>
                <td>
-                  <input v-model="form.question[i]" type="radio" class="form-check-input" :name="'check' + i"
-                     value="false" required>
+                  <input v-model="form.question[i]" type="radio" class="form-check-input" :name="'check' + i" value="false" required>
                </td>
             </tr>
          </tbody>
@@ -51,35 +49,34 @@
                   <p class="text-start small ps-3 my-0">{{info.textEng}}</p>
                </td>
                <td>
-                  <input v-model="form.entourageInfo.questionEn[i-1][n]" type="radio" class="form-check-input "
-                     :name="'check' + i + n" value="true">
+                  <input v-model="form.entourageInfo.questionEn[i-1][n]" type="radio" class="form-check-input " :name="'check' + i + n" value="true">
                </td>
                <td>
-                  <input v-model="form.entourageInfo.questionEn[i-1][n]" type="radio" class="form-check-input "
-                     :name="'check' + i + n" value="false">
+                  <input v-model="form.entourageInfo.questionEn[i-1][n]" type="radio" class="form-check-input " :name="'check' + i + n" value="false">
                </td>
             </tr>
          </tbody>
       </table>
    </div>
 
-   <!-- Timeline -->
+   <!-- Timeline Header-->
    <div class="col-12">
       <h5 class="font-thai fw-bold">ข้อมูลการเดินทาง<span class="fw-bold small">
             (Timeline Information)</span>
       </h5>
-      <p class="font-thai pt-0 mb-2 fw-bold text-secondary">หมายเหตุ: ระบุโดยสังเขป <span>(Kindly provide a brief
-            information)</span></p>
-      <p class="font-thai pt-1 m-0 small">คำชี้แจง: ระบุแจ้งการเดินทางทั้งจากต่างประเทศ และภายในประเทศ ในช่วง 3
+      <!-- <p class="font-thai pt-0 mb-2 fw-bold text-secondary">หมายเหตุ: ระบุโดยสังเขป และบริษัทมีการ<ins>ผ่อนผันนโยบาย</ins>ไม่จำเป็นต้องกรอกข้อมูลบันทึกการเดินทางย้อนหลัง <span>(Kindly provide a brief
+            information and the company has a lenient of the policy that there is no need to fill in the travel record retrospectively.)</span></p> -->
+
+      <p class="font-thai pt-1 m-0 small">คำชี้แจง: ระบุแจ้งการเดินทางทั้งจากต่างประเทศ และภายในประเทศ ในช่วง 5
          วันที่ผ่านมา
          (โปรดระบุจังหวัดและอำเภอ วันเดินทางไปและกลับ และ พาหนะที่ใช้ในการเดินทาง)
       </p>
-      <p class="small m-0 ">Statement: Please provide your 3-day travel history both domestic and international
+      <p class="small m-0 ">Statement: Please provide your 5-day travel history both domestic and international
          (please specify details on the province, district, the date of travelling, and the travel vehicle)
       </p>
    </div>
 
-   <!-- Table -->
+   <!--Timeline Table -->
    <div class="col-12 overflow-auto m-0" style="height: 40vh;">
       <table class="table table-hover text-center position-relative">
          <thead class=" thead-fixed bg-light">
@@ -97,17 +94,15 @@
             </tr>
          </thead>
          <tbody>
-            <tr v-for="i in 3" :key="i">
+            <tr v-for="i in 5" :key="i">
                <td>
                   <p class=" fw-bold">{{ form.timeline.date[i-1] }}</p>
                </td>
                <td>
-                  <input v-model="form.timeline.location[i-1]" type="text" class="form-control form-control-sm"
-                     id="destination" aria-label="destination">
+                  <input v-model="form.timeline.location[i-1]" type="text" class="form-control form-control-sm" id="destination" aria-label="destination">
                </td>
                <td>
-                  <select v-model="form.timeline.vehicle[i-1]" class="form-select form-select-sm font-thai"
-                     aria-label="vehicleSelect">
+                  <select v-model="form.timeline.vehicle[i-1]" class="form-select form-select-sm font-thai" aria-label="vehicleSelect">
                      <option v-for="option in optionVehicle" :value="option.value" class="font-thai">
                         {{ option.text }}
                      </option>
@@ -137,17 +132,15 @@
                </tr>
             </thead>
             <tbody>
-               <tr v-for="n in 3" :key="n">
+               <tr v-for="n in 5" :key="n">
                   <td>
                      <p class=" fw-bold">{{ form.timeline.date[n-1] }}</p>
                   </td>
                   <td>
-                     <input v-model="form.entourageInfo.timeline.location[i-1][n-1]" type="text"
-                        class="form-control form-control-sm" id="destination" aria-label="destination">
+                     <input v-model="form.entourageInfo.timeline.location[i-1][n-1]" type="text" class="form-control form-control-sm" id="destination" aria-label="destination">
                   </td>
                   <td>
-                     <select v-model="form.entourageInfo.timeline.vehicle[i-1][n-1]"
-                        class="form-select form-select-sm font-thai" aria-label="vehicleSelect">
+                     <select v-model="form.entourageInfo.timeline.vehicle[i-1][n-1]" class="form-select form-select-sm font-thai" aria-label="vehicleSelect">
                         <option v-for="option in optionVehicle" :value="option.value" class="font-thai">
                            {{ option.text }}
                         </option>
@@ -161,11 +154,11 @@
 
    <!-- Button -->
    <div class="col-12 d-flex justify-content-end">
-      <button class="btn btn-success btn-sm rounded-pill me-3 h-75 mt-2 font-thai" data-bs-toggle="modal"
-         data-bs-target="#confirmModal" @click="handleInput">ยืนยัน
-         <span>(Confirm)</span></button>
-      <button type="button" class="btn btn-danger btn-sm rounded-pill h-75 mt-2 font-thai"
-         @click="handleCancel()">ยกเลิก
+      <button class="btn btn-success btn-sm rounded-pill me-3 h-75 mt-2 font-thai" data-bs-toggle="modal" data-bs-target="#confirmModal" @click="handleInput">ยืนยัน
+         <!-- <button class="btn btn-success btn-sm rounded-pill me-3 h-75 mt-2 font-thai" @click="checkModal">ยืนยัน -->
+         <span>(Confirm)</span>
+      </button>
+      <button type="button" class="btn btn-danger btn-sm rounded-pill h-75 mt-2 font-thai" @click="handleCancel()">ยกเลิก
          <span>(Cancel)</span></button>
    </div>
 </div>

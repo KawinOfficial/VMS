@@ -3,6 +3,8 @@ const app = Vue.createApp({
     return {
       url_page: "/venderCOVID/API/request-history.php",
       url_approve: "/venderCOVID/API/approve.php",
+      // url_page: "http://3.1.29.26/venderCOVID/API/request-history.php",
+      // url_approve: "http://3.1.29.26/venderCOVID/API/approve.php",
 
       information: [],
       modalInfo: [],
@@ -38,21 +40,29 @@ const app = Vue.createApp({
           textEng: "( Do you have a fever more than 37.1 ํC ?)",
         },
         {
-          text: "มีอาการไอหรือเจ็บคอ",
-          textEng: "(Do you have a cough or sore throats?)",
+          text: "มีอาการไอ หรือเจ็บคอ หรือน้ำมูก หรือเสมหะ หรือไม่ได้กลิ่น หรือไม่รับรส หรือปวดกล้ามเนื้อ หรือหายใจเหนื่อย หรือหายใจลำบาก",
+          textEng:
+            "(Do you have a cough or sore throats or runny nose or lose taste or smell or muscle aches or shortness of breath?)",
         },
         {
-          text: "มีน้ำมูกหรือเสมหะ",
-          textEng: "(Do you have a runny nose?)",
+          text: "ภายใน 25 วันที่ผ่านมา ท่านหรือบุคคลใกล้ชิดได้เดินทางมาจากประเทศที่มีอัตราการระบาดของไข้ฝีดาษลิงสูง เช่น ประเทศในแถบทวีปแอฟริกากลาง เช่น ไนจีเรีย และคองโก และประเทศในยุโรป",
+          textEng:
+            "(Travel from countries with high rates of Monkeypox outbreaks, such as Central African (Nigeria, Congo), and European countries within past 25 days.)",
         },
         {
-          text: "ไม่ได้กลิ่นหรือไม่รับรส",
-          textEng: "(Do you lose taste or smell ?)",
+          text: "ภายใน 25 วันที่ผ่านมา ท่านหรือบุคคลใกล้ชิด มีอาการไข้ร่วมกับอาการใดอาการหนึ่งต่อไปนี้ ปวดหลัง ต่อมน้ำเหลืองโต มีผื่นกระจายตามลำตัว มีลักษณะเป็นตุ่มนูน ตุ่มน้ำใส ตุ่มหนอง หรือตุ่มตกสะเก็ด",
+          textEng:
+            "(Have any of the following symptoms: back pain, enlarged lymph nodes, body rash, clear water blister, pustular blister or scaly blister within past 25 days.)",
         },
-        { text: "ปวดกล้ามเนื้อ", textEng: "(Do you have muscle aches?)" },
         {
-          text: "หายใจเหนื่อยหรือหายใจลำบาก",
-          textEng: "(Do you have a shortness of breath?)",
+          text: "ภายใน 25 วันที่ผ่านมา ท่านหรือบุคคลใกล้ชิดได้สัมผัสโดยตรงกับเลือด สารคัดหลั่ง หรือตุ่มหนองของสัตว์ที่ติดเชื้อหรือสัตว์ป่า",
+          textEng:
+            "(Direct contact with the blood, secretions or pustules of an infected animal or wild animal within past 25 days.)",
+        },
+        {
+          text: "ภายใน 25 วันที่ผ่านมา ท่านหรือบุคคลใกล้ชิดได้สัมผัสโดยตรงกับสารคัดหลั่ง เช่น ไอ จาม ผื่น ตุ่มหนอง น้ำหนอง สิ่งของที่ปนเปื้อนเชื้อของผู้ป่วยไข้ฝีดาษลิง",
+          textEng:
+            "(Direct contact with secretions such as coughing, sneezing, rashes, pustules, pus, objects contaminated with Monkeypox patients within past 25 days)",
         },
       ],
     };
@@ -128,8 +138,9 @@ const app = Vue.createApp({
         note: this.note,
       };
 
-      axios.post(this.url_approve, result).then(({ data: { state } }) => {
-        if (state) {
+      axios.post(this.url_approve, result).then(({ data }) => {
+        // console.log(data);
+        if (data.state) {
           Swal.fire({
             icon: "success",
             title: "ยืนยันคำขอสำเร็จ (Request comfirmed)",
@@ -148,7 +159,7 @@ const app = Vue.createApp({
     },
 
     handleCancel() {
-      console.log(this.infoCancel);
+      // console.log(this.infoCancel);
       const { number, name, company, toVisit, visitDate } = this.infoCancel;
       const result = {
         number: number,

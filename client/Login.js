@@ -2,9 +2,10 @@ const app = Vue.createApp({
   data() {
     return {
       url_page: "/venderCOVID/API/authen.php",
+      // url_page: "http://3.1.29.26/venderCOVID/API/authen.php",
 
       form: {
-        username: "",
+        username: "admin",
         password: "",
       },
     };
@@ -12,16 +13,17 @@ const app = Vue.createApp({
   methods: {
     handleSubmit(e) {
       e.preventDefault();
-      console.log(this.form);
+      // console.log(this.form);
 
-      axios.post(this.url_page, this.form).then(({ data: { state } }) => {
-        // console.log(state);
-        if (state) {
+      axios.post(this.url_page, this.form).then(({ data }) => {
+        console.log(data);
+        if (data.state) {
           Swal.fire({
             icon: "success",
             title: "Login success",
+            text: data.user,
             showConfirmButton: false,
-            timer: 1500,
+            timer: 2000,
           }).then(() => (window.location = "Request.php"));
         } else {
           Swal.fire({

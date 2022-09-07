@@ -2,8 +2,10 @@ const app = Vue.createApp({
   data() {
     return {
       url_me: "/venderCOVID/API/visitor.php",
+      // url_me: "http://3.1.29.26/venderCOVID/API/visitor.php",
       chkAdmit1: false,
       chkAdmit2: false,
+      chkAdmit3: false,
       confirm: false,
 
       form: {
@@ -16,7 +18,7 @@ const app = Vue.createApp({
         vaccine: "",
         vaccineDose: [],
         doseDate: [],
-        atk: "-",
+        atk: "",
         atkDate: "",
         status: "",
         datetime: "",
@@ -77,21 +79,29 @@ const app = Vue.createApp({
           textEng: "( Do you have a fever more than 37.1 ํC ?)",
         },
         {
-          text: "มีอาการไอหรือเจ็บคอ",
-          textEng: "(Do you have a cough or sore throats?)",
+          text: "มีอาการไอ หรือเจ็บคอ หรือน้ำมูก หรือเสมหะ หรือไม่ได้กลิ่น หรือไม่รับรส หรือปวดกล้ามเนื้อ หรือหายใจเหนื่อย หรือหายใจลำบาก",
+          textEng:
+            "(Do you have a cough or sore throats or runny nose or lose taste or smell or muscle aches or shortness of breath?)",
         },
         {
-          text: "มีน้ำมูกหรือเสมหะ",
-          textEng: "(Do you have a runny nose?)",
+          text: "ภายใน 25 วันที่ผ่านมา ท่านหรือบุคคลใกล้ชิดได้เดินทางมาจากประเทศที่มีอัตราการระบาดของไข้ฝีดาษลิงสูง เช่น ประเทศในแถบทวีปแอฟริกากลาง เช่น ไนจีเรีย และคองโก และประเทศในยุโรป",
+          textEng:
+            "(Travel from countries with high rates of Monkeypox outbreaks, such as Central African (Nigeria, Congo), and European countries within past 25 days.)",
         },
         {
-          text: "ไม่ได้กลิ่นหรือไม่รับรส",
-          textEng: "(Do you lose taste or smell ?)",
+          text: "ภายใน 25 วันที่ผ่านมา ท่านหรือบุคคลใกล้ชิด มีอาการไข้ร่วมกับอาการใดอาการหนึ่งต่อไปนี้ ปวดหลัง ต่อมน้ำเหลืองโต มีผื่นกระจายตามลำตัว มีลักษณะเป็นตุ่มนูน ตุ่มน้ำใส ตุ่มหนอง หรือตุ่มตกสะเก็ด",
+          textEng:
+            "(Have any of the following symptoms: back pain, enlarged lymph nodes, body rash, clear water blister, pustular blister or scaly blister within past 25 days.)",
         },
-        { text: "ปวดกล้ามเนื้อ", textEng: "(Do you have muscle aches?)" },
         {
-          text: "หายใจเหนื่อยหรือหายใจลำบาก",
-          textEng: "(Do you have a shortness of breath?)",
+          text: "ภายใน 25 วันที่ผ่านมา ท่านหรือบุคคลใกล้ชิดได้สัมผัสโดยตรงกับเลือด สารคัดหลั่ง หรือตุ่มหนองของสัตว์ที่ติดเชื้อหรือสัตว์ป่า",
+          textEng:
+            "(Direct contact with the blood, secretions or pustules of an infected animal or wild animal within past 25 days.)",
+        },
+        {
+          text: "ภายใน 25 วันที่ผ่านมา ท่านหรือบุคคลใกล้ชิดได้สัมผัสโดยตรงกับสารคัดหลั่ง เช่น ไอ จาม ผื่น ตุ่มหนอง น้ำหนอง สิ่งของที่ปนเปื้อนเชื้อของผู้ป่วยไข้ฝีดาษลิง",
+          textEng:
+            "(Direct contact with secretions such as coughing, sneezing, rashes, pustules, pus, objects contaminated with Monkeypox patients within past 25 days)",
         },
       ],
       optionVehicle: [
@@ -112,6 +122,25 @@ const app = Vue.createApp({
     };
   },
   methods: {
+    checkModal() {
+      Swal.fire({
+        icon: "success",
+        title: "บันทึกข้อมูลสำเร็จ",
+        html: `
+      <p class="text-start font-thai mb-0">ทางผู้ประสานงานจะแจ้งผลการพิจารณาให้ท่านทราบอีกครั้ง
+      ขอให้ท่านเตรียมข้อมูลเหล่านี้ให้พร้อมเพื่อแสดงต่อเจ้าหน้าที่หน่วยงานรักษาความแลอดภัยของทางบริษัทฯ ในวันที่ท่านเดินทาง</p>
+      <p class="text-start small">(SNC's coordinator will inform you consideration result again. Please prepare this information to show the staff of the SNC's safety department.)</p>
+      <p class="text-start font-thai fw-bold">1. ประวัติการฉีดวัคซีน <span class="small">(Vaccination history)</span></p>
+      <p class="text-start font-thai  fw-bold">2. บริษัทฯ กำหนดให้บุคคลภายนอกทุกท่านจะ <ins class="text-danger">ต้องตรวจคัดกรองโควิทด้วยชุดตรวจ ATK เพื่อยืนยันผลตรวจที่ป้อม รปภ. ก่อนเข้าพื้นที่บริษัท</ins> โดยผลตรวจจะมีผล 3 วัน ทั้งนี้ท่านสามารถเตรียมชุดตรวจ ATK มาด้วยตนเอง หรือซื้อที่ป้อม รปภ. ได้ในราคาชุดละ 40 บาท
+      <br/><span class="small">(SNC Group requires all visitors to be screened for Covid-19 with an ATK test kit to confirm the Negative-results at the security guards department before entering the company area. The results will be effective for 3 days. Visitor can prepare the ATK test kit by themselves or buy at the security guard department for 40 baht per set.)</span></p>
+      <p class="text-start font-thai  mb-0">ท่านสามารถแสดงหลักฐานผ่านแอปพลิเคชันหมอพร้อม หรือเอกสารหลักฐานใดๆ ที่เกี่ยวข้อง</p>
+      <p class="text-start small  mb-0">(You can show evidence through the Mor Prom application or any documentary evidence related.)</p>
+      `,
+        confirmButtonText: "รับทราบ",
+        customClass: "swal-width",
+      });
+    },
+
     handleConfirm() {
       const {
         company,
@@ -225,11 +254,13 @@ const app = Vue.createApp({
       ขอให้ท่านเตรียมข้อมูลเหล่านี้ให้พร้อมเพื่อแสดงต่อเจ้าหน้าที่หน่วยงานรักษาความแลอดภัยของทางบริษัทฯ ในวันที่ท่านเดินทาง</p>
       <p class="text-start small">(SNC's coordinator will inform you consideration result again. Please prepare this information to show the staff of the SNC's safety department.)</p>
       <p class="text-start font-thai fw-bold">1. ประวัติการฉีดวัคซีน <span class="small">(Vaccination history)</span></p>
-      <p class="text-start font-thai fw-bold">2. ผลการตรวจ ATK <span class="small">(ATK test results)</span></p>
+      <p class="text-start font-thai  fw-bold">2. บริษัทฯ กำหนดให้บุคคลภายนอกทุกท่านจะ <ins class="text-danger">ต้องตรวจคัดกรองโควิทด้วยชุดตรวจ ATK เพื่อยืนยันผลตรวจที่ป้อม รปภ. ก่อนเข้าพื้นที่บริษัท</ins> โดยผลตรวจจะมีผล 3 วัน ทั้งนี้ท่านสามารถเตรียมชุดตรวจ ATK มาด้วยตนเอง หรือซื้อที่ป้อม รปภ. ได้ในราคาชุดละ 40 บาท
+      <br/><span class="small">(SNC Group requires all visitors to be screened for Covid-19 with an ATK test kit to confirm the Negative-results at the security guards department before entering the company area. The results will be effective for 3 days. Visitor can prepare the ATK test kit by themselves or buy at the security guard department for 40 baht per set.)</span></p>
       <p class="text-start font-thai  mb-0">ท่านสามารถแสดงหลักฐานผ่านแอปพลิเคชันหมอพร้อม หรือเอกสารหลักฐานใดๆ ที่เกี่ยวข้อง</p>
       <p class="text-start small  mb-0">(You can show evidence through the Mor Prom application or any documentary evidence related.)</p>
       `,
             confirmButtonText: "รับทราบ",
+            customClass: "swal-width",
           }).then(() => window.location.reload());
         } else {
           Swal.fire({
@@ -276,7 +307,6 @@ const app = Vue.createApp({
         atkDate,
         entourage,
         question,
-        timeline,
       } = this.form;
       const {
         name: nameEn,
@@ -304,10 +334,9 @@ const app = Vue.createApp({
         (vaccineDose2 != undefined) &
         (doseDate1 != undefined) &
         (doseDate2 != undefined) &
-        // (atk != "") &
-        // (atkDate != "") &
-        (question.length == "8") &
-        (timeline.location.length == "3")
+        (atk != "") &
+        (atkDate != "") &
+        (question.length == "8")
       ) {
         if (entourage != "0") {
           if (
@@ -317,8 +346,8 @@ const app = Vue.createApp({
             (doseDateEn[entourage - 1][0] != undefined) &
             (vaccineDoseEn[entourage - 1][1] != undefined) &
             (doseDateEn[entourage - 1][1] != undefined) &
-            // (atkEn.length == entourage) &
-            // (atkDateEn.length == entourage) &
+            (atkEn.length == entourage) &
+            (atkDateEn.length == entourage) &
             (questionEn[entourage - 1].length == "8")
           ) {
             return (this.confirm = false);
@@ -336,7 +365,7 @@ const app = Vue.createApp({
   mounted() {
     // setInterval(() => console.log(this.form.timeline.date), 1000);
     setTimeout(() => {
-      this.form.timeline.date = Array(14)
+      this.form.timeline.date = Array(5)
         .fill()
         .map((_, day) => {
           day += 1;

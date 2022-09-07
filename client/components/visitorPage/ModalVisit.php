@@ -360,8 +360,7 @@
 </div>
 
 <!-- Confirm Modal -->
-<div class="modal fade" id="confirmModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-   aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="confirmModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <div class="modal-content">
          <div class="modal-header">
@@ -370,7 +369,7 @@
             </h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
-         <div class="modal-body" style="height: 47vh">
+         <div class="modal-body" style="height: 55vh">
             <div class="row">
                <div class="col-12">
                   <p class="font-thai">
@@ -397,8 +396,8 @@
                         </span></p>
                   </div>
                   <div class="col-3">
-                     <button type="button" class="btn btn-sm btn-secondary font-thai text-nowrap" data-bs-toggle="modal"
-                        data-bs-target="#personalModal">รายละเอียด</button>
+                     <a href="https://www.sncformer.com/th/privacy-policy" target="_blank" class="btn btn-sm btn-secondary font-thai text-nowrap">รายละเอียด</a>
+                     <!-- <button type="button" class="btn btn-sm btn-secondary font-thai text-nowrap" data-bs-toggle="modal" data-bs-target="#personalModal">รายละเอียด</button> -->
                   </div>
                   <div class="col-1 d-flex align-items-center justify-content-end">
                      <i class="fas fa-circle fa-xs me-3"></i>
@@ -409,8 +408,19 @@
                         </span></p>
                   </div>
                   <div class="col-3">
-                     <button type="button" class="btn btn-sm btn-secondary font-thai text-nowrap" data-bs-toggle="modal"
-                        data-bs-target="#CCTVModal">รายละเอียด</button>
+                     <a href="https://me-qr.com/th/mobile/pdf/7410588" target="_blank" class="btn btn-sm btn-secondary font-thai text-nowrap">รายละเอียด</a>
+                     <!-- <button type="button" class="btn btn-sm btn-secondary font-thai text-nowrap" data-bs-toggle="modal" data-bs-target="#CCTVModal">รายละเอียด</button> -->
+                  </div>
+                  <div class="col-1 d-flex align-items-center justify-content-end">
+                     <i class="fas fa-circle fa-xs me-3"></i>
+                  </div>
+                  <div class="col-8 ">
+                     <p class="font-thai fw-bold pt-3">นโยบายการใช้คุกกี้ <br /><span>
+                           ( Cookies policy.)
+                        </span></p>
+                  </div>
+                  <div class="col-3">
+                     <a href="https://www.sncformer.com/th/cookies-policy" target="_blank" class="btn btn-sm btn-secondary font-thai text-nowrap">รายละเอียด</a>
                   </div>
                </div>
 
@@ -433,6 +443,14 @@
                            ข้าพเจ้ายอมรับนโยบายความเป็นส่วนตัวในการใช้งานกล้องวงจรปิด (CCTV)
                         </label>
                      </div>
+                     <div class="col-1 text-end ">
+                        <input v-model="chkAdmit3" class="form-check-input" type="checkbox" id="checkBox3">
+                     </div>
+                     <div class="col-11">
+                        <label class="form-check-label font-thai ps-2" for="checkBox3">
+                           ข้าพเจ้ายอมรับนโยบายการใช้คุกกี้
+                        </label>
+                     </div>
                   </div>
                </div>
             </div>
@@ -440,8 +458,7 @@
 
          <div class="modal-footer">
             <p v-if="confirm" class="font-thai text-danger">โปรดระบุข้อมูลให้ครบถ้วน</p>
-            <button class="btn btn-success rounded-pill font-thai" @click="handleConfirm()" data-bs-dismiss="modal"
-               :disabled="confirm || !chkAdmit1 || !chkAdmit2">ยืนยัน
+            <button class="btn btn-success rounded-pill font-thai" @click="handleConfirm()" data-bs-dismiss="modal" :disabled="confirm || !chkAdmit1 || !chkAdmit2 || !chkAdmit3">ยืนยัน
                <span>(Confirm)</span></button>
             <button type="button" class="btn btn-danger rounded-pill font-thai" data-bs-dismiss="modal">ยกเลิก
                <span>(Cancel)</span></button>

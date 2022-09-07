@@ -6,6 +6,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Visitor Management System</title>
+   <link rel="icon" type="image/svg+xml" href="./img/pandemic.svg" />
    <!-- Bootstap -->
    <link rel="stylesheet" href="css/bootstrap.min.css">
    <!-- Vue.js -->
@@ -13,10 +14,8 @@
    <!-- Font -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@200;400;600;800&display=swap"
-      rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,300&display=swap"
-      rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@200;400;600;800&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
    <!-- Axios -->
    <script src="js/axios/axios.min.js"></script>
    <!-- SweetAlert2 (CSS) -->
@@ -29,20 +28,20 @@
 
 <body>
    <div class=" container-fluid">
-      <div class="d-grid justify-content-center align-items-center pb-5" style="height: 95vh;">
+      <div class="d-grid justify-content-center align-items-center pb-5" style="height: 97vh;">
          <div align="center">
-            <img src="./img/logo.png" alt="SNClogo" style="height: 18vh;">
-            <div align="center" class="row mt-5 ">
+            <img src="./img/logo.png" alt="SNClogo" style="height: 20vh;">
+            <div class="row mt-3 ">
                <div class="col-6">
-                  <a href="Visitor.php" role="button" class="btn btn-light border-dark btn-lg">
-                     <i class="fas fa-user-edit"></i>
-                     Visitor
+                  <a href="Visitor.php" role="button" class="btn border-dark font-thai w-75">
+                     <i class="fas fa-user-edit px-1"></i>
+                     ผู้มาติดต่อ (Visitor)
                   </a>
                </div>
                <div class="col-6">
-                  <a href="Login.php" role="button" class="btn btn-info border-dark btn-lg text-dark px-3">
-                     <i class="fas fa-sign-in-alt"></i>
-                     Sign in
+                  <a href="Login.php" role="button" class="btn border-dark text-dark font-thai w-75">
+                     <i class="fas fa-sign-in-alt px-1"></i>
+                     ผู้อนุมัติ (Approver)
                   </a>
                </div>
             </div>

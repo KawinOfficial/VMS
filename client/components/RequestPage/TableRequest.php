@@ -1,4 +1,4 @@
-<div class="col-12 overflow-auto  m-0" style="height: 70vh;">
+<div class="col-12 overflow-auto  m-0" style="height: 65vh;">
    <table class="table table-hover text-center align-middle position-relative">
       <thead class="thead-fixed bg-white">
          <tr>

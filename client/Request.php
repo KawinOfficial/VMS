@@ -4,7 +4,7 @@ $sessUsername = $_SESSION["username"];
 $sessLogIn = $_SESSION["isLoggedIn"];
 
 if (!isset($_SESSION['username'])) {
-   header("Location: logout.php");
+   header("Location: Login.php");
 }
 ?>
 
@@ -16,6 +16,7 @@ if (!isset($_SESSION['username'])) {
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Request Page</title>
+   <link rel="icon" type="image/svg+xml" href="./img/pandemic.svg" />
    <!-- Bootstap -->
    <link rel="stylesheet" href="css/bootstrap.min.css">
    <!-- Vue.js -->
@@ -23,10 +24,8 @@ if (!isset($_SESSION['username'])) {
    <!-- Font -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@200;400;600;800&display=swap"
-      rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,300&display=swap"
-      rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@200;400;600;800&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
    <!-- Axios -->
    <script src="js/axios/axios.min.js"></script>
    <!-- SweetAlert2 (CSS) -->
@@ -51,19 +50,16 @@ if (!isset($_SESSION['username'])) {
                      <!-- Search -->
                      <div class="row">
                         <div class="col-4">
-                           <input v-model="form.search" class="form-control form-control-sm" type="text"
-                              placeholder="Search" id="Search" aria-label="Search" />
+                           <input v-model="form.search" class="form-control form-control-sm" type="text" placeholder="Search" id="Search" aria-label="Search" />
                         </div>
                         <div class="col-4">
-                           <input v-model="form.datetime" class="form-control form-control-sm" type="date"
-                              id="dateSearch" aria-label="dateSearch" />
+                           <input v-model="form.datetime" class="form-control form-control-sm" type="date" id="dateSearch" aria-label="dateSearch" />
                         </div>
                         <div class="col-4">
                            <button class="btn btn-secondary btn-sm me-2" @click="getInfo()">
                               <i class="fas fa-search"></i>
                            </button>
-                           <button type="reset" class="btn btn-danger btn-sm"
-                              @click="form.search = '', form.datetime = '',getInfo() ">
+                           <button type="reset" class="btn btn-danger btn-sm" @click="form.search = '', form.datetime = '',getInfo() ">
                               <i class="far fa-trash-alt"></i>
                            </button>
                         </div>

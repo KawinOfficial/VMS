@@ -3,9 +3,10 @@
 }
 
 body {
-  background: url("../img/bgEdit.jpg") no-repeat fixed center;
-  background-size: 100vw;
-  background-size: cover;
+  /* background: url("../img/bgEdit.jpg") no-repeat fixed center; */
+  background: url("../img/loginBg.png") no-repeat bottom right;
+  background-size: 100vh;
+  /* background-size: cover; */
 }
 
 .SNC {
@@ -26,7 +27,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0px;
 }
 
 ::-webkit-scrollbar-track {
@@ -48,4 +49,8 @@ body {
   50% {
     opacity: 0.2;
   }
+}
+
+.swal-width {
+  min-width: 80vw;
 }
